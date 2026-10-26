@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+setup_*.py
+trigger_*.py
+get_logs.py

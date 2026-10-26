@@ -1,0 +1,41 @@
+name: renew
+
+on:
+  workflow_dispatch:
+    inputs:
+      watch_seconds:
+        description: '累计观看秒数（240=一档，480=两档）'
+        required: false
+        default: '240'
+      keep_hours:
+        description: '剩余超过这么多小时就整轮跳过'
+        required: false
+        default: '30'
+  schedule:
+    - cron: '23 */6 * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: godlike-renew
+  cancel-in-progress: false
+
+jobs:
+  renew:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 续期 / 保活
+        env:
+          GODLIKE_EMAIL: ${{ secrets.GODLIKE_EMAIL }}
+          GODLIKE_PASSWORD: ${{ secrets.GODLIKE_PASSWORD }}
+          GODLIKE_WATCH_SECONDS: ${{ inputs.watch_seconds || '240' }}
+          GODLIKE_KEEP_HOURS: ${{ inputs.keep_hours || '30' }}
+        run: python renew.py
