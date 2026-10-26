@@ -1,5 +1,7 @@
 # godlike-renew-hermes
 
+> 账号 / 服务器 / 接口 / 自动化清单都记在 [`ACCOUNT.md`](ACCOUNT.md)。
+
 Godlike Host 免费 Minecraft 服（2GB，US 区）的**自动续期 + 保活**，纯 API，不依赖浏览器。
 
 ## 它做什么
