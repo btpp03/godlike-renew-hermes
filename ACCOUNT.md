@@ -10,7 +10,7 @@
 | 面板 | https://panel.godlike.host （前端 SPA：https://ultra.panel.godlike.host） |
 | 官网/购物车 | https://godlike.host/clientarea |
 | 登录邮箱 | `nicebtpp@proton.me` |
-| 密码 | **不写在这里** —— 仓是 public，这是他惯用密码，明文上去等于全网泄露。见 Actions secret `GODLIKE_PASSWORD` + 本机 `/root/gl/CREDS.txt` |
+| 密码 | **不在本仓**（本仓 public）。凭据登记在私有仓 `btpp03/agent-accounts`，运行时用 Actions secret `GODLIKE_PASSWORD` |
 | clientarea userid | `606551`（面板 `/users/billing` → linked client_id `610060`） |
 | 登录接口 | `POST /api/v2/auth/login {"user":email,"password":pw}` → `data.token`（`ptlc_…`） |
 
